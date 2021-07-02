@@ -1,5 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react';
 import {Phototable} from './Phototable/Phototable';
+import s from './SearchPage.module.css'
 
 type MainPagePropsType = {
     searchKeyWord: () => void
@@ -13,18 +14,19 @@ export const SearchPage: React.FC<MainPagePropsType> = props => {
         newKeyWord
     } = props
 
-    const asasa = (e: KeyboardEvent<HTMLInputElement>) => {
+    const handlerOnKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') {
             searchKeyWord()
         }
     }
 
     return (
-        <div>
-            <input type="text"
+        <div className={s.container}>
+            <input className={s.textArea}
+                   type="text"
                    onChange={newKeyWord}
                    placeholder='Find images'
-                   onKeyPress={asasa}
+                   onKeyPress={handlerOnKeyPress}
             />
             <Phototable/>
         </div>

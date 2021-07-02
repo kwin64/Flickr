@@ -26,7 +26,10 @@ export const mainPageReducer = (state = initialState, action: ActionsType): Init
 }
 
 //AC
-export const setNewPhotos = (photos: Array<photoInfo>) => ({type: searchKeyWordTypes["SET-NEW-PHOTOS"], photos} as const)
+export const setNewPhotos = (photos: Array<photoInfo>) => ({
+    type: searchKeyWordTypes["SET-NEW-PHOTOS"],
+    photos
+} as const)
 
 //TC
 export const searchNewPhotos = (nameUser: string) => (dispatch: Dispatch) => {
