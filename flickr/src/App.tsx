@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import './App.module.css';
+import s from './App.module.css';
 import {BookmarksContainer} from "./components/UI/Navbar/Bookmarks/BookmarksContainer";
 import {MainPage} from './components/UI/MainPage';
 import {SearchPageContainer} from "./components/UI/Navbar/SearchPage/SearchPageContainer";
@@ -10,9 +10,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import s from "./components/UI/MainPage.module.css";
-import searchImg from "./common/assets/cloud.png";
-import bookmarksImg from "./common/assets/bookmarks.png";
 import {Navbar} from "./components/UI/Navbar/Navbar";
 
 function App() {
@@ -31,7 +28,7 @@ function App() {
 
     return (
 
-        <div>
+        <div className={s.container}>
             <AppBar position="static">
                 <Toolbar>
 
@@ -53,26 +50,26 @@ function App() {
                     )}
 
                 </Toolbar>
+            </AppBar>
 
-                <div className={s.mainPage}>
+            <div className={s.mainPage}>
+                <Navbar/>
+                <Switch>
+                    <Route exact path='/' render={() => <Redirect to='/main'/>}/>
+                    <Route exact path='/main' render={() => <MainPage/>}/>
+                    <Route exact path='/bookmarks' render={() => <BookmarksContainer/>}/>
+                    <Route exact path='/search' render={() => <SearchPageContainer/>}/>
+                    <Route exact path='/404' render={() => <div>404 PAGE NO FOUND</div>}/>
+                    <Route exact path='*' render={() => <Redirect to='404'/>}/>
+                </Switch>
+            </div>
 
-                    <Navbar/>
-
-                    <Switch>
-                        <Route exact path='/' render={() => <Redirect to='/main'/>}/>
-                        <Route exact path='/main' render={() => <MainPage/>}/>
-                        <Route exact path='/bookmarks' render={() => <BookmarksContainer/>}/>
-                        <Route exact path='/search' render={() => <SearchPageContainer/>}/>
-                        <Route exact path='/404' render={() => <div>404 PAGE NO FOUND</div>}/>
-                        <Route exact path='*' render={() => <Redirect to='404'/>}/>
-                    </Switch>
-
-                </div>
-
-                <Typography variant="h6" className={useStylesAppBar().title}>
-                    Copyrights
-                </Typography>
-
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography variant="h6" className={useStylesAppBar().title}>
+                        Copyrights
+                    </Typography>
+                </Toolbar>
             </AppBar>
         </div>
 
