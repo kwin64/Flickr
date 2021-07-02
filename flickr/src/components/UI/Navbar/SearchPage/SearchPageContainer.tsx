@@ -5,9 +5,7 @@ import {SearchPage} from "./SearchPage";
 
 type MainPageContainerPropsType = {}
 
-export const SearchPageContainer: React.FC<MainPageContainerPropsType> = props => {
-
-    const {} = props
+export const SearchPageContainer: React.FC<MainPageContainerPropsType> = () => {
 
     const dispatch = useDispatch()
     const [keyWord, setKeyWord] = useState('')

@@ -1,7 +1,5 @@
-import React, {ChangeEvent} from 'react';
-import {useSelector} from "react-redux";
-import {AppRootStateType} from "../../../BLL/store";
-import {photoInfo} from "../../../DAL/mainPageAPI";
+import React, {ChangeEvent, KeyboardEvent} from 'react';
+import {Phototable} from './Phototable/Phototable';
 
 type MainPagePropsType = {
     searchKeyWord: () => void
@@ -15,27 +13,20 @@ export const SearchPage: React.FC<MainPagePropsType> = props => {
         newKeyWord
     } = props
 
-    const photos = useSelector<AppRootStateType, Array<photoInfo>>(state => state.mainPageReducer.photos)
+    const asasa = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            searchKeyWord()
+        }
+    }
 
     return (
         <div>
             <input type="text"
                    onChange={newKeyWord}
                    placeholder='Find images'
+                   onKeyPress={asasa}
             />
-            <button onClick={searchKeyWord}
-            >search
-            </button>
-            <>
-                {photos.map(photo => {
-                    return (
-                        <div>
-                            <img alt=''
-                                 src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}/>
-                        </div>
-                    )
-                })}
-            </>
+            <Phototable/>
         </div>
     );
 }

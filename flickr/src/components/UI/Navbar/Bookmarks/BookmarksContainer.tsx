@@ -3,9 +3,8 @@ import {Bookmarks} from "./Bookmarks";
 
 type BookmarksContainerPropsType = {}
 
-export const BookmarksContainer: React.FC<BookmarksContainerPropsType> = props => {
+export const BookmarksContainer: React.FC<BookmarksContainerPropsType> = () => {
 
-    const {} = props
 
     return (
         <Bookmarks/>
