@@ -1,11 +1,11 @@
 import React, {ChangeEvent, useState} from 'react';
 import {useDispatch} from "react-redux";
-import {searchNewPhotos} from '../../BLL/reducers/mainPageReducer';
-import {MainPage} from "./MainPage";
+import {searchNewPhotos} from '../../../BLL/reducers/mainPageReducer';
+import {SearchPage} from "./SearchPage";
 
 type MainPageContainerPropsType = {}
 
-export const MainPageContainer: React.FC<MainPageContainerPropsType> = props => {
+export const SearchPageContainer: React.FC<MainPageContainerPropsType> = props => {
 
     const {} = props
 
@@ -20,8 +20,8 @@ export const MainPageContainer: React.FC<MainPageContainerPropsType> = props => 
     }
 
     return (
-        <MainPage searchKeyWord={searchKeyWord}
-                  newKeyWord={newKeyWord}
+        <SearchPage searchKeyWord={searchKeyWord}
+                    newKeyWord={newKeyWord}
         />
     );
 }

@@ -1,14 +1,14 @@
 import React, {ChangeEvent} from 'react';
 import {useSelector} from "react-redux";
-import {AppRootStateType} from "../../BLL/store";
-import {photoInfo} from "../../DAL/mainPageAPI";
+import {AppRootStateType} from "../../../BLL/store";
+import {photoInfo} from "../../../DAL/mainPageAPI";
 
 type MainPagePropsType = {
     searchKeyWord: () => void
     newKeyWord: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export const MainPage: React.FC<MainPagePropsType> = props => {
+export const SearchPage: React.FC<MainPagePropsType> = props => {
 
     const {
         searchKeyWord,
@@ -30,8 +30,8 @@ export const MainPage: React.FC<MainPagePropsType> = props => {
                 {photos.map(photo => {
                     return (
                         <div>
-                            <img
-                                src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}/>
+                            <img alt=''
+                                 src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}/>
                         </div>
                     )
                 })}
