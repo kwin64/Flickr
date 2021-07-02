@@ -1,9 +1,9 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import thunk from "redux-thunk";
-import {searchKeyWord} from "./reducers/searchKeyWord";
+import {mainPageReducer} from "./reducers/mainPageReducer";
 
 const rootReducer = combineReducers({
-    searchKeyWord
+    mainPageReducer
 })
 export const store = createStore(rootReducer, applyMiddleware(thunk))
 

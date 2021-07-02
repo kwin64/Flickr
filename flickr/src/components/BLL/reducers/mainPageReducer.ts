@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import {photo, userAPI} from "../../DAL/searchPhotos";
+import {photoInfo, userAPI} from "../../DAL/mainPageAPI";
 
 export type ActionsType = ReturnType<typeof setNewPhotos>
 
@@ -10,10 +10,10 @@ export enum searchKeyWordTypes {
 export type InitialStateSearchKeyWordType = typeof initialState
 
 let initialState = {
-    photos: [] as Array<photo>
+    photos: [] as Array<photoInfo>
 }
 
-export const searchKeyWord = (state = initialState, action: ActionsType): InitialStateSearchKeyWordType => {
+export const mainPageReducer = (state = initialState, action: ActionsType): InitialStateSearchKeyWordType => {
     switch (action.type) {
         case searchKeyWordTypes["SET-NEW-PHOTOS"] :
             return {
@@ -24,13 +24,14 @@ export const searchKeyWord = (state = initialState, action: ActionsType): Initia
             return state
     }
 }
+
 //AC
-export const setNewPhotos = (photos: Array<photo>) => ({type: searchKeyWordTypes["SET-NEW-PHOTOS"], photos} as const)
+export const setNewPhotos = (photos: Array<photoInfo>) => ({type: searchKeyWordTypes["SET-NEW-PHOTOS"], photos} as const)
 
 //TC
 export const searchNewPhotos = (nameUser: string) => (dispatch: Dispatch) => {
     try {
-        userAPI.searchKeyWord(nameUser)
+        userAPI.getNewImages(nameUser)
             .then(res => {
                 dispatch(setNewPhotos(res.data.photos.photo))
             })

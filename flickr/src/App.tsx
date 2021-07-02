@@ -1,31 +1,21 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+import {Redirect, Route, Switch} from 'react-router-dom';
 import './App.module.css';
-import {useDispatch, useSelector} from "react-redux";
-import {searchNewPhotos} from "./components/BLL/reducers/searchKeyWord";
-import {AppRootStateType} from "./components/BLL/store";
-import {photo} from "./components/DAL/instance";
+import {MainPageContainer} from "./components/UI/MainPage/MainPageContainer";
+import {BookmarksContainer} from "./components/UI/Bookmarks/BookmarksContainer";
 
 function App() {
-
-    const dispatch = useDispatch()
-    const photos = useSelector<AppRootStateType, Array<photo>>(state => state.searchKeyWord.photos)
-
-    useEffect(() => {
-        dispatch(searchNewPhotos('cat'))
-    }, [dispatch])
-
-    console.log(photos)
-
     return (
         <>
-            {photos.map(photo => {
-                return <div key={photo.id}>
-                    <div>photoId:{photo.id}</div>
-                    <div>photoTitle:{photo.title}</div>
-                </div>
-            })}
+            <Switch>
+                <Route exact path='/' render={() => <Redirect to='/main'/>}/>
+                <Route exact path='/main' render={() => <MainPageContainer/>}/>
+                <Route exact path='/bookmarks' render={() => <BookmarksContainer/>}/>
+                <Route exact path='/404' render={() => <div>404 PAGE NO FOUND</div>}/>
+                <Route exact path='*' render={() => <Redirect to='404'/>}/>
+            </Switch>
         </>
-    );
+    )
 }
 
 export default App;
