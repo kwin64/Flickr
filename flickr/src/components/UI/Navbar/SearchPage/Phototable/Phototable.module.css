@@ -6,21 +6,26 @@
     height: 70vh;
     margin: 10px 5px;
     width: 99.1%;
-    /*border: 1px solid;*/
     overflow: scroll;
-    overflow-x:hidden;
+    overflow-x: hidden;
+}
+
+.photoContainer {
+    overflow: hidden;
+    width: 500px;
+}
+
+.photoContainer > img {
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
 }
 
 .photo {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    border: 1px solid;
-}
-
-.photo > img {
-    width: 500px;
-    height: 400px;
+    padding: 10px;
 }
 
 .photo > button {

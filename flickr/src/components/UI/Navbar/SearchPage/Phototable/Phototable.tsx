@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../../../BLL/store";
 import {photoInfo} from '../../../../DAL/mainPageAPI';
 import s from './Phototable.module.css'
+import Paper from '@material-ui/core/Paper';
 
 type MainPagePropsType = {}
 
@@ -18,10 +19,17 @@ export const Phototable: React.FC<MainPagePropsType> = props => {
 
                 {photos.map(p => {
                     return (
-                        <div className={s.photo}>
-                            <img src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`} alt=""/>
-                            <button>Bookmarks it!</button>
-                            <span>{p.title}</span>
+                        <div>
+                            <Paper elevation={3}>
+                                <div className={s.photo} key={p.id}>
+                                    <div className={s.photoContainer}>
+                                        <img src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`}
+                                             alt=""/>
+                                    </div>
+                                    <button>Bookmarks it!</button>
+                                    <span>{p.title}</span>
+                                </div>
+                            </Paper>
                         </div>
                     )
                 })}
