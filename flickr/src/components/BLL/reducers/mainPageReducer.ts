@@ -2,7 +2,7 @@ import {Dispatch} from "redux";
 import {photoInfo, userAPI} from "../../DAL/mainPageAPI";
 import {AppRootStateType} from "../store";
 
-export type ActionsType = ReturnType<typeof setNewPhotos>
+type ActionsType = ReturnType<typeof setNewPhotos>
     | ReturnType<typeof setPages>
     | ReturnType<typeof setCurrentPage>
 

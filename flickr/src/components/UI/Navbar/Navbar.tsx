@@ -1,30 +1,25 @@
+import {Grid, IconButton} from '@material-ui/core';
 import React from 'react';
-import s from './Navbar.module.css'
-import searchImg from '../../../common/assets/cloud.png';
-import bookmarksImg from '../../../common/assets/bookmarks.png';
-import {NavLink} from "react-router-dom";
-
-//icon
-import CloudCircleIcon from '@material-ui/icons/CloudCircle';
+import {Bookmarks, Cloud} from "@material-ui/icons";
+import {NavLink} from 'react-router-dom';
+import s from "./Navbar.module.css"
 
 export const Navbar: React.FC = () => {
 
     return (
         <div className={s.nav}>
-
-            <NavLink className={s.activeLink}
-                     to='/search'>
-                <img src={searchImg}
-                     alt=""
-                />
-            </NavLink>
-
-            <NavLink className={s.activeLink}
-                     to='/bookmarks'>
-                <img src={bookmarksImg}
-                     alt=""
-                />
-            </NavLink>
+            <Grid container direction="column" alignItems="center">
+                <NavLink to="/search" activeClassName={s.active}>
+                    <IconButton>
+                        <Cloud fontSize='large'/>
+                    </IconButton>
+                </NavLink>
+                <NavLink to="/bookmarks" activeClassName={s.active}>
+                    <IconButton>
+                        <Bookmarks fontSize='large'/>
+                    </IconButton>
+                </NavLink>
+            </Grid>
         </div>
     );
 }

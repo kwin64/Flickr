@@ -1,13 +1,13 @@
 import React from 'react';
+import s from './Bookmarks.module.css'
+import {Phototable} from "../SearchPage/Phototable/Phototable";
 
 type BookmarksPropsType = {}
 
 export const Bookmarks: React.FC<BookmarksPropsType> = () => {
 
     return (
-        <div>
-            <h3>dkasfj;kfjdas;fjds;das</h3>
-        </div>
+        <Phototable/>
     );
 }
 
