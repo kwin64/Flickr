@@ -1,4 +1,5 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react';
+import {Pagination} from '../../Pagination/Pagination';
 import {Phototable} from './Phototable/Phototable';
 import s from './SearchPage.module.css'
 
@@ -28,6 +29,7 @@ export const SearchPage: React.FC<MainPagePropsType> = props => {
                    placeholder='Find images'
                    onKeyPress={handlerOnKeyPress}
             />
+            <Pagination/>
             <Phototable/>
         </div>
     );

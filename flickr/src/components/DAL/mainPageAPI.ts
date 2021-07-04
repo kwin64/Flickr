@@ -1,10 +1,5 @@
 import {instance} from "./instance";
 
-// const params = `api_key=07d85452f5459d91f976cb90272be7ac&text=${keyword}&format=json&nojsoncallback=1&per_page=12&page=${this.currPage}`;
-// const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&';
-// const params = `api_key=07d85452f5459d91f976cb90272be7ac&text=${keyword}&format=json&nojsoncallback=1&per_page=12&page=${this.currPage}`;
-
-
 export type photoInfo = {
     farm: 66
     id: string
@@ -29,7 +24,7 @@ export type newPhotos = {
 }
 
 export const userAPI = {
-    getNewImages(keyword: string) {
-        return instance.get<newPhotos>(`?method=flickr.photos.search&api_key=07d85452f5459d91f976cb90272be7ac&tags=${keyword}&per_page=10&page=1&format=json&nojsoncallback=1&per_page=12&page=1`)
+    getNewImages(keyword: string, page: number, perpage: number) {
+        return instance.get<newPhotos>(`?method=flickr.photos.search&api_key=07d85452f5459d91f976cb90272be7ac&tags=${keyword}&per_page=${perpage}&page=${page}&format=json&nojsoncallback=1`)
     },
 }

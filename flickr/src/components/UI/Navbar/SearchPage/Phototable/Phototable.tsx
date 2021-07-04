@@ -13,13 +13,10 @@ export const Phototable: React.FC<MainPagePropsType> = props => {
 
     return (
         <div>
-            Pagination
-
             <div className={s.phototable}>
-
                 {photos.map(p => {
                     return (
-                        <div>
+                        <div key={p.id}>
                             <Paper elevation={3}>
                                 <div className={s.photo} key={p.id}>
                                     <div className={s.photoContainer}>

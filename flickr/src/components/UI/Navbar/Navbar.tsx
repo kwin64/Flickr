@@ -4,6 +4,9 @@ import searchImg from '../../../common/assets/cloud.png';
 import bookmarksImg from '../../../common/assets/bookmarks.png';
 import {NavLink} from "react-router-dom";
 
+//icon
+import CloudCircleIcon from '@material-ui/icons/CloudCircle';
+
 export const Navbar: React.FC = () => {
 
     return (
