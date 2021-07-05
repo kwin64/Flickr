@@ -1,15 +1,22 @@
 import React from 'react';
-import {useSelector} from "react-redux";
-import {AppRootStateType} from "../../../../BLL/store";
-import {photoInfo} from '../../../../DAL/mainPageAPI';
+import {photoInfo} from '../../DAL/mainPageAPI';
 import s from './Phototable.module.css'
 import Paper from '@material-ui/core/Paper';
 
-type MainPagePropsType = {}
+type MainPagePropsType = {
+    photos: Array<photoInfo>
+    buttonName: string
+    handlerOnClick: (id: string) => void
+}
 
 export const Phototable: React.FC<MainPagePropsType> = props => {
 
-    const photos = useSelector<AppRootStateType, Array<photoInfo>>(state => state.mainPageReducer.photos)
+    const {
+        photos,
+        buttonName,
+        handlerOnClick
+    } = props
+
 
     return (
         <div>
@@ -21,9 +28,13 @@ export const Phototable: React.FC<MainPagePropsType> = props => {
                                 <div className={s.photo} key={p.id}>
                                     <div className={s.photoContainer}>
                                         <img src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`}
-                                             alt=""/>
+                                             alt=""
+                                        />
                                     </div>
-                                    <button>Bookmarks it!</button>
+                                    <button onClick={() => {
+                                        handlerOnClick(p.id)
+                                    }}
+                                    >{buttonName}</button>
                                     <span>{p.title}</span>
                                 </div>
                             </Paper>
