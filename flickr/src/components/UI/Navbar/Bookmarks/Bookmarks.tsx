@@ -16,8 +16,6 @@ export const Bookmarks: React.FC<BookmarksPropsType> = () => {
 
         const newPhotoData = photosLocalStorage.filter(p => p.id !== id)
 
-        const photosFromLocalStorage = getParseLocalStorageData('stateLocalStorage');
-
         setPhotosLocalStorage(newPhotoData);
         setPhotoToLocalStorage('stateLocalStorage', JSON.stringify(
             newPhotoData

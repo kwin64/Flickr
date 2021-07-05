@@ -16,7 +16,7 @@ export const SearchPageContainer: React.FC<MainPageContainerPropsType> = () => {
         if (keyWord) {
             dispatch(searchNewPhotos(keyWord))
         }
-    }, [activePage, dispatch])
+    }, [activePage, dispatch, keyWord])
 
     const searchKeyWord = () => {
         dispatch(searchNewPhotos(keyWord))
