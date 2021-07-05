@@ -31,16 +31,14 @@ export const SearchPage: React.FC<MainPagePropsType> = props => {
         getParseLocalStorageData('stateLocalStorage')
     );
 
-    console.log(photosLocalStorage)
-
-    const addPhoto = (id: string) => {
+    const addPhotoLocalStorage = (id: string) => {
 
         const newPhotoData = photos.filter(p => p.id === id)
-        const notesFromLocalStorage = getParseLocalStorageData('stateLocalStorage');
+        const photosFromLocalStorage = getParseLocalStorageData('stateLocalStorage');
 
-        setPhotosLocalStorage([...notesFromLocalStorage, newPhotoData[0]]);
+        setPhotosLocalStorage([...photosFromLocalStorage, newPhotoData[0]]);
         setPhotoToLocalStorage('stateLocalStorage', JSON.stringify(
-            [...notesFromLocalStorage, newPhotoData[0]]
+            [...photosFromLocalStorage, newPhotoData[0]]
         ))
     }
 
@@ -55,7 +53,7 @@ export const SearchPage: React.FC<MainPagePropsType> = props => {
             <Pagination/>
             <Phototable photos={photos}
                         buttonName={'Bookmarks it!'}
-                        handlerOnClick={addPhoto}
+                        handlerOnClick={addPhotoLocalStorage}
             />
         </div>
     );
