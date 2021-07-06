@@ -1,27 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from './Bookmarks.module.css'
 import {Phototable} from "../../common/Phototable/Phototable";
-import {getParseLocalStorageData, setPhotoToLocalStorage} from "../../../BLL/localStorage";
 import {photoInfo} from "../../../DAL/mainPageAPI";
 
-type BookmarksPropsType = {}
+type BookmarksPropsType = {
+    photosLocalStorage: Array<photoInfo>
+    deletePhotoLocalStorage: (id: string) => void
+}
 
-export const Bookmarks: React.FC<BookmarksPropsType> = () => {
+export const Bookmarks: React.FC<BookmarksPropsType> = props => {
 
-    const [photosLocalStorage, setPhotosLocalStorage] = useState<Array<photoInfo>>(
-        getParseLocalStorageData('stateLocalStorage')
-    );
-
-    const deletePhotoLocalStorage = (id: string) => {
-
-        const newPhotoData = photosLocalStorage.filter(p => p.id !== id)
-
-        setPhotosLocalStorage(newPhotoData);
-        setPhotoToLocalStorage('stateLocalStorage', JSON.stringify(
-            newPhotoData
-        ))
-    }
-
+    const {
+        photosLocalStorage,
+        deletePhotoLocalStorage
+    } = props
 
     return (
         <div className={s.container}>
