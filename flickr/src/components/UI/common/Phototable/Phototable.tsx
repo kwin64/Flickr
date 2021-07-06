@@ -1,5 +1,5 @@
 import React from 'react';
-import {photoInfo} from '../../DAL/mainPageAPI';
+import {photoInfo} from '../../../DAL/mainPageAPI';
 import s from './Phototable.module.css'
 import Paper from '@material-ui/core/Paper';
 

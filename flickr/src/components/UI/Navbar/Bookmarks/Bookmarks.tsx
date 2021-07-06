@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import s from './Bookmarks.module.css'
-import {Phototable} from "../../Phototable/Phototable";
+import {Phototable} from "../../common/Phototable/Phototable";
 import {getParseLocalStorageData, setPhotoToLocalStorage} from "../../../BLL/localStorage";
 import {photoInfo} from "../../../DAL/mainPageAPI";
 

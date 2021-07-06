@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 import {Pagination} from '../../Pagination/Pagination';
-import {Phototable} from '../../Phototable/Phototable';
+import {Phototable} from '../../common/Phototable/Phototable';
 import s from './SearchPage.module.css'
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../../BLL/store";
