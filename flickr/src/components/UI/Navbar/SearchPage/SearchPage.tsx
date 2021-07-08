@@ -18,7 +18,6 @@ export const SearchPage: React.FC<MainPagePropsType> = props => {
         photos
     } = props
 
-
     return (
         <div className={s.container}>
             <input className={s.textArea}
@@ -30,7 +29,6 @@ export const SearchPage: React.FC<MainPagePropsType> = props => {
             <Phototable photos={photos}
                         buttonName={'Bookmarks it!'}
                         handlerOnClick={addPhotoLocalStorage}
-                        disabledButton={''}
             />
         </div>
     );

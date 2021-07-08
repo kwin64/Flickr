@@ -43,6 +43,7 @@ export const Pagination: React.FC = () => {
             {pagesCount
                 .filter(p => p >= leftBorderPageNumber && p <= rightBorderPageNumber)
                 .map(page => {
+
                     return <Button color="primary"
                                    variant={activePage === page ? "contained" : undefined}
                                    onClick={() => {

@@ -11,6 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import {Navbar} from "./components/UI/Navbar/Navbar";
+import {PageNotFound} from "./components/UI/common/PageNotFound/PageNotFound";
 
 function App() {
 
@@ -59,8 +60,8 @@ function App() {
                     <Route exact path='/main' render={() => <MainPage/>}/>
                     <Route exact path='/bookmarks' render={() => <BookmarksContainer/>}/>
                     <Route exact path='/search' render={() => <SearchPageContainer/>}/>
-                    <Route exact path='/404' render={() => <div>404 PAGE NO FOUND</div>}/>
-                    <Route exact path='*' render={() => <Redirect to='404'/>}/>
+                    <Route exact path='/404' render={() => <PageNotFound/>}/>
+                    <Route exact path='*' render={() => <Redirect to='/404'/>}/>
                 </Switch>
             </div>
 

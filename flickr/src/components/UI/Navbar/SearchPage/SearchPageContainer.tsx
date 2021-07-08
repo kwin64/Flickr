@@ -13,8 +13,10 @@ export const SearchPageContainer: React.FC<MainPageContainerPropsType> = () => {
 
     const dispatch = useDispatch()
     const [keyWord, setKeyWord] = useState('')
+
     const activePage = useSelector<AppRootStateType, number>(state => state.mainPageReducer.pagination.page)
     const photos = useSelector<AppRootStateType, Array<photoInfo>>(state => state.mainPageReducer.photos)
+
     const debounce = Debouncing(keyWord, 400)
 
     useEffect(() => {
@@ -56,6 +58,6 @@ export const SearchPageContainer: React.FC<MainPageContainerPropsType> = () => {
                     addPhotoLocalStorage={addPhotoLocalStorage}
                     photos={photos}
         />
-    );
+    )
 }
 
