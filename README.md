@@ -6,4 +6,4 @@
 Технологии: React, Redux, JavaScript, Axios.
 
 
-https://kwin64.github.io/Flickr/#/main
+https://kwin64.github.io/Flickr
